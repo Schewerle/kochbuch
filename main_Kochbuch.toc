@@ -1,0 +1,8 @@
+\select@language {german}
+\contentsline {part}{\numberline {I}Rezepte}{5}{part.1}
+\contentsline {chapter}{\numberline {1}Vegetarisch}{7}{chapter.1}
+\contentsline {section}{\numberline {1.1}Rote-Bete-Risotto}{8}{section.1.1}
+\contentsline {chapter}{\numberline {2}Fleischgerichte}{9}{chapter.2}
+\contentsline {chapter}{\numberline {3}Fisch}{11}{chapter.3}
+\contentsline {chapter}{\numberline {4}Süßes}{13}{chapter.4}
+\contentsline {part}{\numberline {II}Anhang}{15}{part.2}
