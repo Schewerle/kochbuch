@@ -1,0 +1,136 @@
+%%
+%Dieser Coder wird  mit XeTex übersetzt, ist aber auch leicht auf pdflatex umzustellen
+
+%%
+\AtBeginDocument{\newcommand{\version}{Version 0.2}}
+\documentclass[fontsize=12pt,headings=small,ngerman]{scrbook}
+\usepackage{calc}
+\usepackage[a4paper]{geometry}
+\geometry{inner=25mm,outer=50mm,top=40mm,bottom=40mm,bindingoffset=1cm,marginpar=55cm}
+
+%% Seiteneinstellungen für die Kapitelseite auf gleichmäßige Ränder ohne Rand für Marginalien setzen
+
+\newcommand\innen{25mm}
+\newcommand\aussen{25mm}
+\newcommand\oben{40mm}
+\newcommand\unten{40mm}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[spelling = new, babelshorthands = true]{german}
+\usepackage{xltxtra} % Dieses Paket lödt automatisch die folgenden Pakete: fixltx2e, metalogo, xunicode, fontspec
+\usepackage{ellipsis, % Korrigiert den Weißraum um Auslassungspunkte
+ragged2e, % Ermöglicht Flattersatz mit Silbentrennung % Befehl \RaggedRight
+marginnote, % Für bessere Randnotizen mit \marginnote statt \marginline
+}
+\usepackage{microtype}
+\usepackage[autostyle=true,german=guillemets]{csquotes}
+\usepackage[right]{eurosym} % Euro-Geldbeträge setzen (mit Euro-Symbol hinter Zahlenwert}
+\usepackage{scrlayer-scrpage}
+\usepackage{libertine}
+\linespread{1.08} % Durchschuss für Libertine-Font erhöhen
+\setlength{\skip\footins}{20pt}
+\deffootnote[]{1.5em}{1em}{\thefootnotemark\enskip}
+\usepackage{url}
+\usepackage[bookmarks=true,%
+    bookmarksopen=true,%
+    bookmarksnumbered=true,%
+    pdftitle={Julians Rezepte},%
+    pdfauthor={gesammelt und zusammengestellt von Julian Schepperle},
+    pdfsubject={Rezepte zum Nachmachen - einfach und lecker},%
+    pdfkeywords={Rezepte, Kochen, Backen, Fleisch, Fisch, vegetarisch, vegan, Süßes},%
+]{hyperref}
+%Farben
+\usepackage[cmyk]{xcolor}
+%Tabellen
+\usepackage{array,multirow,longtable}
+
+\newcolumntype{P}[1]{>{\hspace{0pt}}p{#1}}
+
+\renewcommand{\arraystretch}{1}
+\newcommand\aaa{2mm}  % 1.Spalte
+\newcommand\bbb{7mm}  % 2.Spalte
+\newcommand\ccc{9mm}  % 3.Spalte
+\newcommand\ddd{28mm} % 4.Spalte
+\newcommand\eee{58mm} % 5.Spalte
+
+\newcounter{step}
+\renewcommand*\thestep{\arabic{step}.\,)}
+\newcommand\nextstep{\stepcounter{step}\thestep}
+
+\setcounter{tocdepth}{1}
+\usepackage{makeidx}
+\makeindex
+
+\author{Julian Schepperle}
+\title{Köstliche Rezepte}
+\subtitle{gesammelt von}
+\date{Januar 2017}
+\lowertitleback{Diese Sammlung wurde mit Hilfe von  {\KOMAScript} und {\XeLaTeX} gesetzt. \newline\version}
+
+\hyphenation{To-ma-ten-mark wal-nuss-gro-ße Ma-jo-ran}
+
+% Vakatseiten bis auf die Paginierung leer lassen, also mit Seitenstil plain erzeugen (s.S. scrguide.pdf}
+\KOMAoptions{cleardoublepage=plain}
+
+\begin{document}
+
+% % Seiteneinstellungen für Titelei, Inhaltsverzeichnis und die Kapitelseite
+% % auf gleichmäßige Ränder ohne Rand für Marginalien setzen
+\newgeometry{inner=\innen, outer=\aussen, top=\oben, bottom=\unten}
+\maketitle
+\tableofcontents
+\part{Rezepte}
+\label{prt:rezepte}
+
+\chapter{Vegetarisch}
+\label{cha:vegetarisch}
+
+% % Seiteneinstellungen auf Ränder mit Marginalienspalten setzen
+\restoregeometry
+
+\include{vegetarisch/rote-bete-risotto}
+%chapter vegetarisch
+
+% % Seiteneinstellungen für die Kapitelseite auf gleichmäßige Ränder ohne Rand für Marginalien setzen
+\newgeometry{inner=\innen, outer=\aussen, top=\oben, bottom=\unten}
+\chapter{Fleischgerichte}
+\label{cha:fleischgerichte}
+
+% % Seiteneinstellungen auf Ränder mit Marginalienspalten setzen
+\restoregeometry
+
+% Ihre Fleischrezepte aus \inclued{fleisch/ihr-rezept}
+% chapter fleischgerichte
+
+% % Seiteneinstellungen für die Kapitelseite auf gleichmäßige Ränder ohne Rand für Marginalien setzen
+\newgeometry{inner=\innen, outer=\aussen, top=\oben, bottom=\unten}
+\chapter{Fisch}
+\label{cha:fisch}
+
+% % Seiteneinstellungen auf Ränder mit Marginalienspalten setzen
+\restoregeometry
+
+% Ihre Fischrezepte aus \inclued{fisch/ihr-rezept}
+% chapter fischgerichte
+
+
+% % Seiteneinstellungen für die Kapitelseite auf gleichmäßige Ränder ohne Rand für Marginalien setzen
+\newgeometry{inner=\innen, outer=\aussen, top=\oben, bottom=\unten}
+\chapter{Süßes}
+\label{cha:susses}
+
+% % Seiteneinstellungen auf Ränder mit Marginalienspalten setzen
+\restoregeometry
+
+% Ihre Backrezepte aus \inclued{suesses/ihr-rezept}
+% chapter susses
+% part rezepte
+% % Seiteneinstellungen für die Kapitelseite auf gleichmäßige Ränder ohne Rand für Marginalien setzen
+\newgeometry{inner=\innen, outer=\aussen, top=\oben, bottom=\unten}
+\appendix
+\part{Anhang}
+\label{prt:anhang}
+\label{cha:anhang}
+\printindex
+\end{document}
+
